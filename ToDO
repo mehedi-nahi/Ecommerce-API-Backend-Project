@@ -1,0 +1,15 @@
+1.Project File Structure
+2.Project Package
+--npm add express
+--npm add mongoose
+--npm add jsonwebtoken
+--npm add cors
+--npm add helmet
+--npm add express-rate-limit
+--npm add nodemailer
+--npm add nodemon
+3.Route Config
+4.App.js Config
+5.POSTMAN Initial Config
+6.EMAIL Credential Config
+7.Write User Model
