@@ -15,9 +15,9 @@ export const UpdateCart=async(req,res)=>{
         return res.json({status:"error","Message": e.toString()});
     }
 }
-export const ReadCart=async(req,res)=>{
+export const ReadCartList=async(req,res)=>{
     try{
-        return res.json({status:"success","Message": "ReadCart successfully"})
+        return res.json({status:"success","Message": "ReadCartList successfully"})
     }
     catch(e){
         return res.json({status:"error","Message": e.toString()});

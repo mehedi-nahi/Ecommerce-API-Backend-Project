@@ -17,3 +17,12 @@ export const URL_ENCODE=true
 
 export const REQUEST_TIME=20*60*1000
 export const REQUEST_NUMBER=2000
+
+
+export const STORE_ID="XXXX"
+export const STORE_PASSWORD="XXXX"
+export const CURRENCY="BDT"
+export const SUCCESS_URL="http://localhost:3000/success"
+export const FAIL_URL="http://localhost:3000/fail"
+export const CANCEL_URL="http://localhost:3000/cancel"
+export const INIT_URL="https://sandbox.sslcommerz.com/gwprocess/v4/api/initialize"

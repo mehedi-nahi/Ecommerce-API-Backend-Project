@@ -7,7 +7,7 @@ export const CreateWish=async(req,res)=>{
     }
 }
 
-export const ReadWish=async(req,res)=>{
+export const ReadWishList=async(req,res)=>{
     try{
         return res.json({status:"success","Message": "ReadWish successfully"})
     }

@@ -1,4 +1,20 @@
 1.Project File Structure
 2.Controllers File Function
 3.API End Point Define
-4.
+4.Payment gateway Integration
+5.Create Model Files
+-brandsModel
+-productsModel
+-categoriesModel
+-slidersModel
+-reviewsModel
+-detailsModel
+-ordersModel
+-usersModel
+-wishesModel
+-cartsModel
+-profilesModel
+-invoicesModel
+-invoiceProductsModel
+
+6.Understanding the payment methods flow

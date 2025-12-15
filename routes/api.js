@@ -17,38 +17,38 @@ router.post("/UpdateUserProfile", UserController.UpdateUserProfile)
 router.get("/ReadUserProfile", UserController.ReadUserProfile)
 
 //Brands
-router.post("/BrandList", BrandController.BrandList)
+router.get("/BrandList", BrandController.BrandList)
 
 
 //Categories
-router.post("/CategoryList", CategoryController.CategoryList)
+router.get("/CategoryList", CategoryController.CategoryList)
 
 
 //Cart
 router.post("/CreateCart", CartListController.CreateCart)
-router.put("/UpdateCart", CartListController.UpdateCart)
-router.get("/ReadCart", CartListController.ReadCart)
-router.delete("/RemoveCart", CartListController.RemoveCart)
+router.post("/UpdateCart", CartListController.UpdateCart)
+router.get("/ReadCartList", CartListController.ReadCartList)
+router.post("/RemoveCart", CartListController.RemoveCart)
 
 //Wish
 router.post("/CreateWish", WishlistController.CreateWish)
-router.post("/ReadWish", WishlistController.ReadWish)
+router.get("/ReadWishList", WishlistController.ReadWishList)
 router.post("/RemoveWish", WishlistController.RemoveWish)
 
 //Product
-router.post("/ProductListByCategory", ProductController.ProductListByCategory)
-router.post("/ProductListBySlider", ProductController.ProductListBySlider)
-router.post("/ProductListByRemark", ProductController.ProductListByRemark)
-router.post("ProductListByBrand", ProductController.ProductListByBrand)
-router.post("/ProductDetailsID", ProductController.ProductDetailsID)
-router.post("/ProductListByKeyword", ProductController.ProductListByKeyword)
-router.post ("/ProductReviewListByID", ProductController.ProductReviewListByID)
+router.get("/ProductListByCategory", ProductController.ProductListByCategory)
+router.get("/ProductListBySlider", ProductController.ProductListBySlider)
+router.get("/ProductListByRemark", ProductController.ProductListByRemark)
+router.get("/ProductListByBrand", ProductController.ProductListByBrand)
+router.get("/ProductDetailsID", ProductController.ProductDetailsID)
+router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
+router.get ("/ProductReviewListByID", ProductController.ProductReviewListByID)
 router.post("/CreateProductReview", ProductController.CreateProductReview)
 
 //Invoice
 router.post("/CreateInvoice", InvoiceController.CreateInvoice)
-router.post("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
-router.post("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
+router.get("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
+router.get("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
 
 
 
