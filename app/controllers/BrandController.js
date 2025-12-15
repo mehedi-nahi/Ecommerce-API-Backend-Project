@@ -1,8 +1,6 @@
+import {BrandListService} from "../service/ProductService.js";
+
 export const BrandList=async(req,res)=>{
-    try{
-        return res.json({status:"success"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await BrandListService();
+    return res.json(result);
 }

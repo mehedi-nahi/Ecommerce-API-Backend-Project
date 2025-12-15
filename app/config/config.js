@@ -1,5 +1,5 @@
 export const PORT=5050
-export const DATABASE='mongodb+srv://Nahi:01531949342@cluster0.no97x.mongodb.net/MernTaskAPI'
+export const DATABASE='mongodb+srv://Nahi:01531949342@cluster0.no97x.mongodb.net/EcomAPI'
 export const JWT_KEY='ABC123412341234'
 export const JWT_EXPIRE_TIME=30*24*60*60
 

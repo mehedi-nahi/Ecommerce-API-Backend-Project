@@ -30,20 +30,24 @@ router.post("/UpdateCart", CartListController.UpdateCart)
 router.get("/ReadCartList", CartListController.ReadCartList)
 router.post("/RemoveCart", CartListController.RemoveCart)
 
+
+//Review
+router.post("/CreateProductReview", ProductController.CreateProductReview)
+
 //Wish
 router.post("/CreateWish", WishlistController.CreateWish)
 router.get("/ReadWishList", WishlistController.ReadWishList)
 router.post("/RemoveWish", WishlistController.RemoveWish)
 
 //Product
-router.get("/ProductListByCategory", ProductController.ProductListByCategory)
+router.get("/ProductListByCategory/:CategoryID", ProductController.ProductListByCategory)
 router.get("/ProductListBySlider", ProductController.ProductListBySlider)
-router.get("/ProductListByRemark", ProductController.ProductListByRemark)
-router.get("/ProductListByBrand", ProductController.ProductListByBrand)
-router.get("/ProductDetailsID", ProductController.ProductDetailsID)
+router.get("/ProductListByRemark/:Remark", ProductController.ProductListByRemark)
+router.get("/ProductListByBrand/:BrandID", ProductController.ProductListByBrand)
+router.get("/ProductDetailsID/:ProductID", ProductController.ProductDetailsID)
 router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
 router.get ("/ProductReviewListByID", ProductController.ProductReviewListByID)
-router.post("/CreateProductReview", ProductController.CreateProductReview)
+
 
 //Invoice
 router.post("/CreateInvoice", InvoiceController.CreateInvoice)

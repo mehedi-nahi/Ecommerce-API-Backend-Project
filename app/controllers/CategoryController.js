@@ -1,3 +1,5 @@
+import {CategoryListService} from "../service/ProductService.js";
+
 export const CategoryList=async(req,res)=>{
     try{
         return res.json({status:"success"})

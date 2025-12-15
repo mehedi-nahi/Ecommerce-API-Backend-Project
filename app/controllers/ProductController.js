@@ -1,43 +1,40 @@
+import {
+    CategoryListService,
+    ListByBrandService,
+    ListByCategoryService,
+    SliderListService,
+    ListByRemarkService,
+    DetailsService,
+} from "../service/ProductService.js";
+
+
+
 export const ProductListByCategory=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductListByCategory successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await ListByCategoryService(req);
+    return res.json(result);
 }
+
 export const ProductListBySlider=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductListBySlider successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await SliderListService();
+    return res.json(result);
 }
+
 export const ProductListByRemark=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductListByRemark successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await ListByRemarkService(req);
+    return res.json(result);
 }
+
+
 export const ProductListByBrand=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductListByRemark successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await ListByBrandService(req);
+    return res.json(result);
 }
+
 export const ProductDetailsID=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductDetailsID successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await DetailsService(req);
+    return res.json(result);
 }
+
 export const ProductListByKeyword =async(req,res)=>{
     try{
         return res.json({status:"success","Message": "ProductListByKeyword successfully"})
@@ -46,6 +43,7 @@ export const ProductListByKeyword =async(req,res)=>{
         return res.json({status:"error","Message": e.toString()});
     }
 }
+
 export const ProductReviewListByID=async(req,res)=>{
     try{
         return res.json({status:"success","Message": "ProductReviewListByID successfully"})
@@ -54,6 +52,7 @@ export const ProductReviewListByID=async(req,res)=>{
         return res.json({status:"error","Message": e.toString()});
     }
 }
+
 export const CreateProductReview=async(req,res)=>{
     try{
         return res.json({status:"success","Message": "CreateProductReview successfully"})
