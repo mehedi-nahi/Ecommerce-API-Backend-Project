@@ -4,18 +4,42 @@ A comprehensive Node.js/Express backend API for an e-commerce platform with Mong
 
 ## 🚀 Features
 
-- **Product Management**: Browse products by brand, category, slider, remark, and keyword search
-- **User System**: User registration, authentication, and profile management
-- **Shopping Cart**: Add, update, and remove items from cart
-- **Wishlist**: Save favorite products for later
-- **Reviews & Ratings**: Customer reviews with aggregated ratings
-- **Order Management**: Complete order processing and tracking
-- **Payment Integration**: Secure payment gateway integration
-- **Invoice System**: Automated invoice generation for orders
+### ✅ Implemented Features
+
+- **Product Catalog Management**
+  - Browse products by brand, category, and slider placement
+  - Filter products by remark tags (new, trending, popular, special, regular)
+  - Full-text search with case-insensitive keyword matching
+  - Detailed product information with image gallery support
+  - Product reviews and ratings system
+
+- **User Authentication & Authorization**
+  - Email-based OTP authentication system
+  - JWT token-based session management
+  - Secure password-less login flow
+  - Token expiration and refresh handling
+
+- **User Profile Management**
+  - Complete customer profile with shipping and billing addresses
+  - Profile creation and update with validation
+  - Upsert operations for seamless data management
+
+- **Wishlist System**
+  - Add products to wishlist
+  - View wishlist with full product details
+  - Remove items from wishlist
+  - User-specific wishlist isolation
+
+### 🚧 In Development
+
+- **Shopping Cart**: Multi-item cart with quantity management
+- **Order Processing**: Complete checkout and order tracking
+- **Payment Gateway**: SSLCommerz integration for secure payments
+- **Invoice System**: Automated invoice generation and management
 
 ## 📋 Database Models
 
-- **Users**: User authentication and acc[UserService.js](app/service/UserService.js)ount management
+- **Users**: User authentication and account management
 - **Profiles**: Extended user profile information
 - **Products**: Product catalog with details
 - **Brands**: Product brand categorization
@@ -245,11 +269,60 @@ This project is licensed under the MIT License.
 - GitHub: [@mehedi-nahi](https://github.com/mehedi-nahi)
 - Repository: [Ecommerce-API-Backend-Project](https://github.com/mehedi-nahi/Ecommerce-API-Backend-Project)
 
-## 🐛 Known Issues & Fixes
+## 🐛 Troubleshooting & Best Practices
 
-- Ensure MongoDB ObjectId fields match schema definitions (case-sensitive)
-- Use `preserveNullAndEmptyArrays: true` in `$unwind` stages to prevent filtering out documents
-- Add `"type": "module"` in `package.json` for ES6 import/export support
+### Common Issues & Solutions
+
+#### Issue: Empty results in aggregation queries
+**Solution**: Ensure field names in aggregation stages match schema definitions exactly (case-sensitive). For example:
+- Schema uses `categoryId` (lowercase 'd')
+- Query must use `{$match: {categoryId: ObjectId}}`, not `{$match: {CategoryID: ObjectId}}`
+
+#### Issue: Aggregation filters out documents unexpectedly
+**Solution**: Use `preserveNullAndEmptyArrays: true` in `$unwind` stages:
+```javascript
+let UnwindStage = {
+  $unwind: {
+    path: "$fieldName",
+    preserveNullAndEmptyArrays: true
+  }
+};
+```
+
+#### Issue: Module import errors with ES6 syntax
+**Solution**: Ensure `package.json` includes `"type": "module"` for ES6 import/export support.
+
+#### Issue: JWT token returns empty object
+**Solution**: Always `await` async functions when calling them:
+```javascript
+// Wrong
+let token = TokenEncode(email, user_id);
+
+// Correct
+let token = await TokenEncode(email, user_id);
+```
+
+#### Issue: String vs ObjectId mismatch in database queries
+**Solution**: Convert string IDs to ObjectId when matching against MongoDB `_id` fields:
+```javascript
+import mongoose from 'mongoose';
+const ObjectId = mongoose.Types.ObjectId;
+
+let id = new ObjectId(req.params.id);
+```
+
+### Development Best Practices
+
+1. **Always validate user input** before database operations
+2. **Use try-catch blocks** in all service functions for error handling
+3. **Return consistent response formats** (`{status, data/message}`)
+4. **Log errors appropriately** for debugging and monitoring
+5. **Test endpoints with Postman** before marking features as complete
+6. **Keep authentication tokens secure** - never log or expose them
+7. **Use environment variables** for all sensitive configuration
+8. **Index frequently queried fields** for better performance
+9. **Implement proper error messages** that don't expose system internals
+10. **Document API changes** in the README when adding new endpoints
 
 ## 📮 Support
 

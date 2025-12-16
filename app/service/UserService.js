@@ -17,9 +17,7 @@ export const LoginService = async (req) => {
     }
     catch (e) {
         return { status: false, message: e.message }
-
     }
-
 }
 
 

@@ -34,4 +34,12 @@
 17.ProductReviewListByID
 
 
-18.User
+18.Login
+19.VerifyLogin
+20.CreateUserProfile
+21.UpdateUserProfile
+22.ReadUserProfile
+
+23.CreateWish
+24.ReadWishList
+25.RemoveWishList

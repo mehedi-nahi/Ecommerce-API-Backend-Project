@@ -14,8 +14,8 @@ import AuthMiddleware from "../app/middlewares/AuthMiddleware.js";
 router.post("/Login", UserController.Login)
 router.post ("/VerifyLogin", UserController.VerifyLogin)
 router.post("/CreateUserProfile",AuthMiddleware, UserController.CreateUserProfile)
-router.post("/UpdateUserProfile", UserController.UpdateUserProfile)
-router.get("/ReadUserProfile", UserController.ReadUserProfile)
+router.post("/UpdateUserProfile",AuthMiddleware, UserController.UpdateUserProfile)
+router.get("/ReadUserProfile",AuthMiddleware, UserController.ReadUserProfile)
 
 //Brands
 router.get("/BrandList", BrandController.BrandList)
@@ -26,20 +26,20 @@ router.get("/CategoryList", CategoryController.CategoryList)
 
 
 //Cart
-router.post("/CreateCart", CartListController.CreateCart)
-router.post("/UpdateCart", CartListController.UpdateCart)
-router.get("/ReadCartList", CartListController.ReadCartList)
-router.post("/RemoveCart", CartListController.RemoveCart)
+router.post("/CreateCart",AuthMiddleware, CartListController.CreateCart)
+router.post("/UpdateCart", AuthMiddleware, CartListController.UpdateCart)
+router.get("/ReadCartList",AuthMiddleware, CartListController.ReadCartList)
+router.post("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 
 //Review
-router.post("/CreateProductReview", ProductController.CreateProductReview)
+router.post("/CreateProductReview",AuthMiddleware, ProductController.CreateProductReview)
 
 //Wish
-router.post("/CreateWish", WishlistController.CreateWish)
-router.get("/ReadWishList", WishlistController.ReadWishList)
-router.post("/RemoveWish", WishlistController.RemoveWish)
-
+router.post("/CreateWish",AuthMiddleware, WishlistController.CreateWish)
+router.get("/ReadWishList",AuthMiddleware, WishlistController.ReadWishList)
+router.post("/RemoveWish",AuthMiddleware, WishlistController.RemoveWish)
+ 
 //Product
 router.get("/ProductListByCategory/:CategoryID", ProductController.ProductListByCategory)
 router.get("/ProductListBySlider", ProductController.ProductListBySlider)
@@ -51,9 +51,9 @@ router.get ("/ProductReviewListByID/:ProductID", ProductController.ProductReview
 
 
 //Invoice
-router.post("/CreateInvoice", InvoiceController.CreateInvoice)
-router.get("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
-router.get("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
+router.post("/CreateInvoice", AuthMiddleware, InvoiceController.CreateInvoice)
+router.get("/ReadInvoiceList", AuthMiddleware, InvoiceController.ReadInvoiceList)
+router.get("/ReadInvoiceDetails",AuthMiddleware, InvoiceController.ReadInvoiceDetails)
 
 
 
