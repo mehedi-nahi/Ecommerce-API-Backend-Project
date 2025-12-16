@@ -5,6 +5,8 @@ import {
     SliderListService,
     ListByRemarkService,
     DetailsService,
+    ListByKeywordService,
+    ReviewListService,
 } from "../service/ProductService.js";
 
 
@@ -36,21 +38,13 @@ export const ProductDetailsID=async(req,res)=>{
 }
 
 export const ProductListByKeyword =async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductListByKeyword successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await ListByKeywordService(req);
+    return res.json(result);
 }
 
 export const ProductReviewListByID=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "ProductReviewListByID successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
+    let result=await ReviewListService(req);
+    return res.json(result);
 }
 
 export const CreateProductReview=async(req,res)=>{

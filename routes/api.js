@@ -45,8 +45,8 @@ router.get("/ProductListBySlider", ProductController.ProductListBySlider)
 router.get("/ProductListByRemark/:Remark", ProductController.ProductListByRemark)
 router.get("/ProductListByBrand/:BrandID", ProductController.ProductListByBrand)
 router.get("/ProductDetailsID/:ProductID", ProductController.ProductDetailsID)
-router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
-router.get ("/ProductReviewListByID", ProductController.ProductReviewListByID)
+router.get("/ProductListByKeyword/:keyword", ProductController.ProductListByKeyword)
+router.get ("/ProductReviewListByID/:ProductID", ProductController.ProductReviewListByID)
 
 
 //Invoice

@@ -152,15 +152,42 @@ export const ListByRemarkService=async(req)=>{
 
 }
 
+export const ListByKeywordService=async(req)=>{
+    try{
+        let keyword=req.params.keyword;
+        let regex={"$regex":keyword,"$options":"i"};
+        let SearchParams=[{title:regex},{shortDes:regex}];
+        let SearchQuery={"$or":SearchParams};
+        let MatchStage={$match:SearchQuery};
 
 
+        let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
+        let JoinWithCategoryStage= {$lookup:{from:"categories",localField:"categoryId",foreignField:"_id",as:"category"}};
+        let UnwindBrandStage={$unwind:"$brand"};
+        let UnwindCategoryStage={$unwind:"$category"};
 
+        let ProjectionStage= {
+            $project: {
+                'brand_id': 0,
+                'category_id': 0,
+                'categoryID': 0,
+                'brandID': 0
+            }
+        };
 
-
-
-export const ListByKeywordService=async(keyword)=>{
-
-
+        let data=await ProductModel.aggregate([
+            MatchStage,
+            JoinWithBrandStage,
+            JoinWithCategoryStage,
+            UnwindBrandStage,
+            UnwindCategoryStage,
+            ProjectionStage
+        ]);
+        return {status:"success",data:data};
+    }
+    catch (e) {
+        return {status:"error",data:e.toString()};
+    }
 
 }
 
@@ -190,9 +217,12 @@ export const DetailsService=async(req)=>{
             MatchStage,
             JoinWithBrandStage,
             JoinWithCategoryStage,
+            JoinWithDetailsStage,
             UnwindBrandStage,
             UnwindCategoryStage,
-            ProjectionStage
+            UnwindDetailsStage,
+            ProjectionStage,
+
         ]);
 
         return {status:"success",data:data};
@@ -200,13 +230,38 @@ export const DetailsService=async(req)=>{
     catch(e){
         return {status:"error",data:e.toString()};
     }
-
-
-
 }
 
 
-export const ReviewListService=async(productId)=>{
+export const ReviewListService=async(req)=>{
+    try{
+        let ProductID=new ObjectId(req.params.ProductID);
+        let MatchStage={$match:{productId:ProductID}};
+
+
+        let JoinWithProfileStage= {$lookup:{from:"profiles",localField:"userID",foreignField:"userID",as:"profile"}};
+        let UnwindProfileStage={$unwind:"$profile"};
+
+        let ProjectionStage= {
+            $project: {
+                'des':1,
+                'rating':1,
+                'profile.cus_name':1,
+            }
+        };
+
+        let data=await ReviewModel.aggregate([
+            MatchStage,
+            JoinWithProfileStage,
+            UnwindProfileStage,
+            ProjectionStage
+        ]);
+
+        return {status:"success",data:data};
+    }
+    catch (e) {
+        return {status:"error",data:e.toString()};
+    }
 
 
 
