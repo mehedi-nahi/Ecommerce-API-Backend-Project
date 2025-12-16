@@ -43,3 +43,10 @@
 23.CreateWish
 24.ReadWishList
 25.RemoveWishList
+
+26.CreateCart
+27.ReadCart
+28.UpdateCart
+29.RemoveCart
+
+30.Create Review

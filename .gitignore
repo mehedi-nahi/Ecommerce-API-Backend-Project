@@ -2,3 +2,6 @@ node_modules/
 .env
 .DS_Store
 dummy_data
+# IDE - WebStorm/IntelliJ
+.idea/
+*.iml
