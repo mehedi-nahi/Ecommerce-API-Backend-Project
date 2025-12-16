@@ -22,6 +22,6 @@ const DataSchema = new mongoose.Schema({
         versionKey:false
     }
 )
-const ProductdetailsModel = mongoose.model('productdetails', DataSchema);
+const ProductDetailsModel = mongoose.model('productdetails', DataSchema);
 
-export default ProductdetailsModel;
+export default ProductDetailsModel;

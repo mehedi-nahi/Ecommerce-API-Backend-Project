@@ -33,7 +33,8 @@ router.post("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 
 //Review
-router.post("/CreateProductReview",AuthMiddleware, ProductController.CreateProductReview)
+router.post("/CreateProductReview",AuthMiddleware, UserController.CreateUserReview)
+router.post("/UpdateProductReview",AuthMiddleware, UserController.UpdateUserReview)
 
 //Wish
 router.post("/CreateWish",AuthMiddleware, WishlistController.CreateWish)

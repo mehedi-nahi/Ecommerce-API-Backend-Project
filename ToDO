@@ -49,4 +49,5 @@
 28.UpdateCart
 29.RemoveCart
 
-30.Create Review
+30.CreateReview
+31.UpdateReview

@@ -199,7 +199,7 @@ export const DetailsService=async(req)=>{
 
         let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
         let JoinWithCategoryStage= {$lookup:{from:"categories",localField:"categoryId",foreignField:"_id",as:"category"}};
-        let JoinWithDetailsStage= {$lookup:{from:"productdetails",localField:"_id",foreignField:"productID",as:"details"}};
+        let JoinWithDetailsStage= {$lookup:{from:"productdetails",localField:"_id",foreignField:"productId",as:"details"}};
 
 
         let UnwindBrandStage={$unwind:"$brand"};

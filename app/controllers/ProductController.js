@@ -46,12 +46,3 @@ export const ProductReviewListByID=async(req,res)=>{
     let result=await ReviewListService(req);
     return res.json(result);
 }
-
-export const CreateProductReview=async(req,res)=>{
-    try{
-        return res.json({status:"success","Message": "CreateProductReview successfully"})
-    }
-    catch(e){
-        return res.json({status:"error","Message": e.toString()});
-    }
-}
