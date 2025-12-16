@@ -7,12 +7,13 @@ import * as CategoryController from "../app/controllers/CategoryController.js";
 import * as CartListController from "../app/controllers/CartListController.js";
 import * as InvoiceController from "../app/controllers/InvoiceController.js";
 import * as WishlistController from "../app/controllers/WishlistController.js";
+import AuthMiddleware from "../app/middlewares/AuthMiddleware.js";
 
 
 //Users
 router.post("/Login", UserController.Login)
 router.post ("/VerifyLogin", UserController.VerifyLogin)
-router.post("/CreateUserProfile", UserController.CreateUserProfile)
+router.post("/CreateUserProfile",AuthMiddleware, UserController.CreateUserProfile)
 router.post("/UpdateUserProfile", UserController.UpdateUserProfile)
 router.get("/ReadUserProfile", UserController.ReadUserProfile)
 

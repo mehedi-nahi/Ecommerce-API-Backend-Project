@@ -22,4 +22,16 @@
 7.Database Collection/Table ----> Model
 
 8.Postman definition for API Testing
-9. Create Brand API
+
+9.BrandList
+10.CategoryList
+11.ProductListBySlider
+12.ProductListByCategory
+13.ProductListByBrand
+14.ProductDetailsID
+15.ProductListByRemark
+16.ProductListByKeyword
+17.ProductReviewListByID
+
+
+18.User

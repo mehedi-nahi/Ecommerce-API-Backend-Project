@@ -15,7 +15,7 @@ A comprehensive Node.js/Express backend API for an e-commerce platform with Mong
 
 ## 📋 Database Models
 
-- **Users**: User authentication and account management
+- **Users**: User authentication and acc[UserService.js](app/service/UserService.js)ount management
 - **Profiles**: Extended user profile information
 - **Products**: Product catalog with details
 - **Brands**: Product brand categorization
