@@ -51,10 +51,15 @@ router.get("/ProductListByKeyword/:keyword", ProductController.ProductListByKeyw
 router.get ("/ProductReviewListByID/:ProductID", ProductController.ProductReviewListByID)
 
 
-//Invoice
+//Invoice & Payment
 router.post("/CreateInvoice", AuthMiddleware, InvoiceController.CreateInvoice)
-router.get("/ReadInvoiceList", AuthMiddleware, InvoiceController.ReadInvoiceList)
-router.get("/ReadInvoiceDetails",AuthMiddleware, InvoiceController.ReadInvoiceDetails)
+router.get("InvoiceList", AuthMiddleware, InvoiceController.InvoiceList)
+router.get("InvoiceProductList/:InvoiceID", AuthMiddleware, InvoiceController.InvoiceProductList)
+
+router.post("/PaymentSuccessful/:trxID", InvoiceController.PaymentSuccess)
+router.post("/PaymentFail/:trxID", InvoiceController.PaymentFail)
+router.post("/PaymentCancel/:trxID", InvoiceController.PaymentCancel)
+router.post("/PaymentIPN/:trxID", InvoiceController.PaymentIPN)
 
 
 
