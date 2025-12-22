@@ -22,7 +22,6 @@ export const PaymentCancel=async(req,res)=>{
     let result = await PaymentSuccessfulService(req);
     return res.redirect('http://localhost:5050/profile');
 }
-}
 export const PaymentIPN=async(req,res)=>{
     let result = await PaymentIPNService(req);
     return res.json(result);
